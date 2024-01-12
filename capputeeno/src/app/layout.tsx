@@ -2,6 +2,7 @@ import { Header } from '@/components/header'
 import type { Metadata } from 'next'
 import { Saira } from 'next/font/google'
 import './globals.css'
+import { FilterContextProvider } from '@/contexts/filter-context'
 
 
 //importa a fonte e definir pesos
@@ -26,8 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={saira.className}>
+        <FilterContextProvider>
         <Header />
         {children}
+        </FilterContextProvider>
+        
       </body>
     </html>
   )
